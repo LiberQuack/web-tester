@@ -16,6 +16,4 @@ RUN apt-get -y update && \
     apt-get -y install firefox google-chrome-stable xvfb openjdk-7-jre-headless && \
     chmod +x /startup.sh
 
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash
-
-RUN ln -s /root/.nvm/nvm.sh /usr/bin/nvm
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | NVM_DIR=/usr/local/nvm bash
