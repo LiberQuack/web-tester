@@ -17,5 +17,3 @@ RUN apt-get -y update && \
     chmod +x /startup.sh
 
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash
-
-ENTRYPOINT ["/startup.sh"]
