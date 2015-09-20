@@ -14,7 +14,8 @@ RUN apt-get -y update && \
     add-apt-repository -y ppa:ubuntu-mozilla-security/ppa && \
     apt-get -y update && \
     apt-get -y install firefox google-chrome-stable xvfb openjdk-7-jre-headless && \
-    chmod +x /startup.sh
+    chmod +x /startup.sh && \
+    echo '/bin/bash /usr/local/nvm/nvm.sh' > /etc/profile.d/nvmstart.sh
 
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | NVM_DIR=/usr/local/nvm bash
 
