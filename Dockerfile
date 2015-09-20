@@ -3,6 +3,10 @@ FROM ubuntu
 MAINTAINER Thiago Martins <rogue.thiago@gmail.com>
 
 ENV DISPLAY=0:0
+END NVM_DIR=/usr/local/nvm
+ENV NVM_IOJS_ORG_MIRROR=https://iojs.org/dist
+ENV NVM_NODEJS_ORG_MIRROR=https://nodejs.org/dist
+NVM NVM_RC_VERSION=
 
 ADD startup.sh /
 
@@ -14,8 +18,7 @@ RUN apt-get -y update && \
     add-apt-repository -y ppa:ubuntu-mozilla-security/ppa && \
     apt-get -y update && \
     apt-get -y install firefox google-chrome-stable xvfb openjdk-7-jre-headless && \
-    chmod +x /startup.sh && \
-    echo '/bin/bash /usr/local/nvm/nvm.sh' > /etc/profile.d/nvmstart.sh
+    chmod +x /startup.sh 
 
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | NVM_DIR=/usr/local/nvm bash
 
