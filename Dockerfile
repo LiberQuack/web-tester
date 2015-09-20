@@ -3,7 +3,7 @@ FROM ubuntu
 MAINTAINER Thiago Martins <rogue.thiago@gmail.com>
 
 RUN apt-get -y update && \
-    apt-get install curl && \
+    apt-get -y install curl && \
     echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list && \
     curl -o- https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
     add-apt-repository -y ppa:ubuntu-mozilla-security/ppa && \
