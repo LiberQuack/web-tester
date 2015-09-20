@@ -3,7 +3,6 @@ FROM ubuntu
 MAINTAINER Thiago Martins <rogue.thiago@gmail.com>
 
 ENV DISPLAY=0:0
-ENV PATH $HOME/.nvm/bin:$PATH
 
 ADD startup.sh /
 
@@ -18,3 +17,5 @@ RUN apt-get -y update && \
     chmod +x /startup.sh
 
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash
+
+RUN ln -s /root/.nvm/nvm.sh /usr/bin/nvm
