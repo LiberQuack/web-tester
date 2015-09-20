@@ -10,4 +10,6 @@ RUN echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sou
 
 RUN wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash
 
+ENV DISPLAY=0:0
+
 ENTRYPOINT ["/startup.sh"]
