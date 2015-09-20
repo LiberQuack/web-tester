@@ -3,6 +3,7 @@ FROM ubuntu
 MAINTAINER Thiago Martins <rogue.thiago@gmail.com>
 
 ENV DISPLAY=0:0
+ENV PATH $HOME/.nvm/bin:$PATH
 
 ADD startup.sh /
 
