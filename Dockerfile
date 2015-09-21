@@ -1,11 +1,11 @@
 FROM ubuntu
-
+ 
 MAINTAINER Thiago Martins <rogue.thiago@gmail.com>
-
+ 
 ENV DISPLAY=0:0
 
 ADD startup.sh /
-
+ 
 RUN apt-get -y update && \
     apt-get -y install curl && \
     apt-get -y install software-properties-common && \
@@ -15,7 +15,11 @@ RUN apt-get -y update && \
     apt-get -y update && \
     apt-get -y install firefox google-chrome-stable xvfb openjdk-7-jre-headless && \
     chmod +x /startup.sh
-
+    
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash
 
-ENTRYPOINT ["/startup.sh"]
+RUN echo '. ~/.nvm/nvm.sh' > /root/.profile
+
+RUN chmod +x /startup.sh
+
+ENTRYPOINT ["/bin/bash", "/startup.sh", "&&", "/bin/bash", "--login", "-i", "-c"]
