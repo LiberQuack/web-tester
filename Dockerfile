@@ -20,7 +20,7 @@ RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh
 
 RUN echo '. ~/.nvm/nvm.sh' > /root/.profile
 
-RUN cp ~/.nvm/nvm.sh' /etc/profile.d/nvm.sh
+RUN cp ~/.nvm/nvm.sh /etc/profile.d/nvm.sh
 
 RUN chmod +x /startup.sh
 
