@@ -19,7 +19,6 @@ RUN apt-get -y update && \
     ln -s /usr/local/nvm/nvm.sh /usr/bin/nvm.sh
     
 
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | NVM_DIR=/usr/local/nvm bash
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash
 
 ENTRYPOINT ["/startup.sh"]
-CMD ["bash"]
