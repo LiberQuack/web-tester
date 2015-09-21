@@ -24,5 +24,5 @@ RUN cp ~/.nvm/nvm.sh' /etc/profile.d/nvm.sh
 
 RUN chmod +x /startup.sh
 
-ENTRYPOINT ["/bin/bash", "/startup.sh", "&&", "/bin/bash", "--login", "-i", "-c", "&&", "/bin/bash", "-c"]
+ENTRYPOINT ["/startup.sh"]
 CMD ["/bin/bash"]
