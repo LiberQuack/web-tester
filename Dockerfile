@@ -22,4 +22,5 @@ RUN echo '. ~/.nvm/nvm.sh' > /root/.profile
 
 RUN chmod +x /startup.sh
 
-ENTRYPOINT ["/bin/bash", "/startup.sh", "&&", "/bin/bash", "--login", "-i", "-c"]
+ENTRYPOINT ["/bin/bash", "/startup.sh", "&&", "/bin/bash", "--login", "-i", "-c", "&&", "/bin/bash", "-c"]
+CMD ["/bin/bash"]
