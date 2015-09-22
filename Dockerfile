@@ -22,5 +22,5 @@ ENV BASH_ENV=/root/.nvm/nvm.sh
 
 RUN chmod +x /startup.sh
 
-ENTRYPOINT ["/bin/bash", "-c"]
-CMD ["/bin/bash"]
+ENTRYPOINT ["/bin/bash", "-c", "echo cebola; \
+$@"]
