@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM node:4.1.0
  
 MAINTAINER Thiago Martins <rogue.thiago@gmail.com>
  
@@ -9,12 +9,11 @@ RUN apt-get -y update && \
     apt-get -y install software-properties-common && \
     echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list && \
     curl -o- https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
-    add-apt-repository -y ppa:ubuntu-mozilla-security/ppa && \
     apt-get -y update && \
-    apt-get -y install firefox google-chrome-stable xvfb openjdk-7-jre-headless
+    apt-get -y install google-chrome-stable xvfb openjdk-7-jre-headless
     
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash
+ADD startup.sh /
 
-ENV BASH_ENV=/root/.nvm/nvm.sh
-
-ENTRYPOINT ["/bin/bash", "-c", "$@"]
+RUN chmod +x /startup.sh
+    
+ENTRYPOINT ["/startup.sh"]
