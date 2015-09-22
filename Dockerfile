@@ -18,11 +18,9 @@ RUN apt-get -y update && \
     
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash
 
-RUN echo '. ~/.nvm/nvm.sh' > /root/.profile
-
-RUN cp ~/.nvm/nvm.sh /etc/profile.d/nvm.sh
+RUN echo '#!/bin/bash\nsource ~/.nvm/nvm.sh' > /root/.profile
 
 RUN chmod +x /startup.sh
 
-ENTRYPOINT ["/startup.sh"]
+ENTRYPOINT ["/bin/bash", "--login", "-c"]
 CMD ["/bin/bash"]
