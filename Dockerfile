@@ -15,7 +15,7 @@ RUN apt-get -y update && \
     apt-get -y install google-chrome-stable xvfb openjdk-7-jre-headless && \
     npm install -g bower && \
     echo '{ "allow_root": true }' > /root/.bowerrc && \
-    chmod g+rwx /root /root/.config /root/.config/configstore && \
+    sudo chmod g+rw ~/.config/configstore/bower-github.yml && \
     printf "N\n" | bower && \
     npm install -g gulp web-component-tester && \
     chmod +x /startup.sh
