@@ -14,6 +14,7 @@ RUN apt-get -y update && \
     apt-get -y update && \
     apt-get -y install google-chrome-stable xvfb openjdk-7-jre-headless && \
     npm install -g bower && \
+    printf "N\n" | bower && \
     chmod g+rw ~/.config/configstore/bower-github.yml && \
     npm install -g gulp web-component-tester && \
     chmod +x /startup.sh
