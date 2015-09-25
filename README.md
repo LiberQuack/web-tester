@@ -49,4 +49,4 @@ build:
 - If possible include different versions of the same browser, example: chrome-45 chrome-46 chrome-47...
 
 ## Changelog
-- 1.0.0 Build with chrome-45 working properly both for Polymer apps a seed elements
+- v1.0.0 Build with chrome-45 working properly both for Polymer apps a seed elements
