@@ -4,7 +4,7 @@ It's a docker container from node:4.1.0 with chrome and Xvfb out-of-box, targeti
 ## Usage
 It's usage primarily dependes if you have an `Polymer app` or if you have a `Polymer seed element`, keep reading
 
-### I have an entire PolymeraApp to test
+### I have an entire Polymer App to test
 If you downloaded polymer-starter-kit or used a generator `yo polymer` basically all you need to do is to include a `wercker.yml` file in the root path of your project containing the configuration bellow
 
 ```lang
