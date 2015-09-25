@@ -1,4 +1,4 @@
-# nvm-browsers
+# polymer-tester
 It's a docker container from node:4.1.0 with chrome and Xvfb out-of-box, targeting Continuous Integration with [Wercker](http://wercker.com/)
 
 ## Usage
