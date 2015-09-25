@@ -14,11 +14,10 @@ RUN apt-get -y update && \
     curl -o- https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
     apt-get -y update && \
     apt-get -y install google-chrome-stable xvfb openjdk-7-jre-headless && \
-    npm install -g bower generator-polymer && \
+    npm install -g bower && \
     echo '{ "allow_root": true }' > /root/.bowerrc && \
     echo "N\n" | bower && \
-    npm install gulp web-component-tester yo && \
-    echo "N\n" | yo && \
+    npm install gulp web-component-tester && \
     chmod +x /startup.sh
     
 ENTRYPOINT ["/startup.sh"]
