@@ -20,4 +20,6 @@ RUN apt-get -y update && \
     npm install gulp web-component-tester && \
     chmod +x /startup.sh
     
+RUN apt-get -y install firefox
+    
 ENTRYPOINT ["/startup.sh"]
