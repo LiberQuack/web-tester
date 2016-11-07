@@ -1,52 +1,54 @@
-# polymer-tester
-It's a docker container from node:4.1.0 with chrome and Xvfb out-of-box, targeting Continuous Integration with [Wercker](http://wercker.com/)
+# WEB-TESTER
 
-## Usage
-It's usage primarily depends if you have a `Polymer app` or if you have a `Polymer seed element`, keep reading
+_This project has been renamed from `martinsthiago/polymer-tester`_
 
-### I have an entire Polymer App to test
-If you downloaded polymer-starter-kit or used a generator `yo polymer`, basically all you need to do is to include a `wercker.yml` file in the root path of your project containing the configuration bellow
+It's a docker image from `ubuntu:16.10` with `node:6.9.1`, `bower`, `git`, `chrome` and `Xvfb` targeting continuous integration with [Wercker](http://wercker.com/)
 
-```lang
-box: martinsthiago/polymer-tester
+### How does it work?
+
+We run Xvfb (fake screen) in background, so you can run gui applications inside the container
+
+### Usage
+Basically all you need to do is to include a `wercker.yml` file in the root path of your project containing your configuration. For example
+
+```yaml
+box: martinsthiago/web-tester
 
 build:
   steps:
     - script:
         name: dependencies installation
         code: |
-          npm install -s
+          npm install -g gulp-cli
+          npm install
           bower install
+
     - script:
         name: tests execution
         code: |
           gulp test
+
     - script:
         name: build execution
         code: |
           gulp
 ```
 
-### I have just a Polymer seed element to test
-Same way, just include a `wercker.yml` in your project containing:
-```
-box: martinsthiago/polymer-tester
 
-build:
-  steps:
-    - script:
-        name: dependencies installation
-        code: |
-          bower install
-    - script:
-        name: tests execution
-        code: |
-          wct
-```
 
-## Roadmap
-- Include other browsers as firefox, opera
-- If possible include different versions of the same browser, example: chrome-45 chrome-46 chrome-47...
+## Install Recipes
+This image tries to provide as little as possible for running tests on chrome, depending on your workflow you may want to install other things like
+
+| Program          | Command                                 |
+|------------------|-----------------------------------------|
+| **Java Jre 8**   | apt install -y openjdk-8-jre-headless   |
+| **Firefox**      | apt install -y firefox                  |
+| **Vnc**          | apt install -y x11vnc                   |
+
+## Why project was renamed?
+
+This project has been renamed from `polymer-tester` -> `web-tester` because now it is more concise and agnostic, so with little setup we can run almost any front-end test instead of polymer tests only
 
 ## Changelog
+- v2.0.0 Removed java, wct, gulp / Changed image to ubuntu:16.10 / Renamed project / up chrome 54 / up node 6.9.1
 - v1.0.0 Build with chrome-45 working properly both for Polymer apps a seed elements
